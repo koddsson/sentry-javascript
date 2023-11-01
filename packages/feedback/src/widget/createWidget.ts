@@ -74,10 +74,10 @@ export function createWidget({ shadow, options, attachTo }: CreateWidgetParams):
       return;
     }
 
-    const eventId = handleFeedbackSubmit(dialog, feedback);
+    const result = await handleFeedbackSubmit(dialog, feedback);
 
     // Error submitting feedback
-    if (!eventId) {
+    if (!result) {
       if (options.onSubmitError) {
         options.onSubmitError();
       }
